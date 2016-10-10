@@ -109,4 +109,14 @@ in "sir " ++ a ++ " " ++ b
   ==============================================================================
 -}
 
--- NOTE: See project in current directory titled `/starman/`
+-- NOTE: See project in current directory titled `starman/`
+
+-- Ideas To Extend Project:
+--------------------------------------------------------------------------------
+-- Generate a random word from a dictionary file (or other source)
+-- NOTE: This might be best accomplished using `import System.Random`
+
+-- Ideas for Other Simple Guessing Games:
+--------------------------------------------------------------------------------
+-- Create 'Guess A Number' Game
+-- Recreate 'Mastermind' Board Game
