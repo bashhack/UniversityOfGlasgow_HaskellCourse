@@ -371,7 +371,7 @@ accr = foldr g' 1 lst
 
   -- NOTE: `foldl` has been much easier to grasp for some reason for me,
   -- so I wanted to work more with foldr to see "what's happening under the hood"
-  
+
   foldr (/) 1 [2,4,8]
   -- > 8 / 1 => 8 => 4 / 8 => 0.5 => 0.5 / 2 => 4.0
 

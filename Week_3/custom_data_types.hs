@@ -113,3 +113,32 @@ isSortedTree (Node x leftSubtree rightSubtree) minVal maxVal =
   let leftSorted = isSortedTree leftSubtree minVal x
       rightSorted = isSortedTree rightSubtree x maxVal
   in x >= minVal && x < maxVal && leftSorted && rightSorted
+
+-- To invoke the function we would write:
+isSortedTree (Node 2 (Node 1 Leaf Leaf) (Node 3 Leaf Leaf)) minBound maxBound
+
+-- So far, we've looked at "traversal" functions, but we now want a
+-- tree "modification" function that will generate a new Tree that
+-- is a modified version of the input Tree
+
+-- This modification function will insert a new maximum value.
+-- "We'll go through the input Tree until we find the rightmost node
+-- with a Leaf on the right, then we will replace the rightmost Leaf
+-- with a new Node containing a new max value (i.e., one larger than
+-- the previous max value)."
+
+addNewMax :: Tree -> Tree
+-- add a new max element to tree
+addNewMax Leaf = Node 0 Leaf Leaf -- input tree with no nodes
+addNewMax (Node x t1 Leaf) = Node x t1 (Node (x+1) Leaf Leaf) -- this is the rightmost Node
+addNewMax (Node x t1 t2) = Node x t1 (addNewMax t2) -- intermediate node, go down right subtree
+
+
+{-|
+  ==============================================================================
+  3.9 - Assignments
+  ==============================================================================
+-}
+
+-- 1) Write a function that inserts a value into a Tree in order
+-- 2) Write a function that converts a Tree into a list
