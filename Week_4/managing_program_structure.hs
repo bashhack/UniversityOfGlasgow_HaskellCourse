@@ -113,3 +113,24 @@ hello x =
   4.4 - Dealing with Uncertainty
   ==============================================================================
 -}
+
+-- Of course, we cannot always count on programs completing successfully - to
+-- handle failed computation, Haskell provides a few mechanisms to deal with
+-- this outcome.
+
+-- The first is `Maybe` - it indicates success or failure of computation - and
+-- according to the Prelude docs "the Maybe type encapsulates an optional value.
+-- A value of type Maybe a either contains a value of type a (representated as
+-- Just a) or it is empty (represented as Nothing)."
+
+-- Let's work with an example:
+
+-- find the max value in an Int list
+maxhelper :: Int -> [Int] -> Int
+maxhelper x [] = x
+maxhelper x (y:ys) = maxhelper
+  (if x>y then x else y) ys
+
+maxfromlist :: [Int] -> Maybe Int
+maxfromlist [] = Nothing
+maxfromlist (x:xs) = Just (maxhelper x xs)
